@@ -131,6 +131,7 @@ section{padding:88px 0;}
 .service-card:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(28,51,80,0.1);}
 .service-idx{font-size:12px;font-weight:700;color:var(--gold-deep);letter-spacing:0.5px;margin-bottom:14px;}
 .service-card h3{font-size:17.5px;color:var(--navy-deep);margin-bottom:8px;font-weight:600;letter-spacing:-0.01em;}
+.service-card h3 a:hover{text-decoration:underline;}
 .service-card p{font-size:14px;color:var(--ink-soft);letter-spacing:-0.005em;}
 
 /* Why choose */
@@ -201,6 +202,24 @@ section{padding:88px 0;}
     linear-gradient(180deg, rgba(28,51,80,0.1) 0%, rgba(28,51,80,0.72) 100%),
     url('./images/flat-roof-work.jpg');
   background-size:cover;background-position:center 40%;
+}
+.photo-band--reroof{
+  background:
+    linear-gradient(180deg, rgba(28,51,80,0.08) 0%, rgba(28,51,80,0.68) 100%),
+    url('./images/finished-reroof.jpg');
+  background-size:cover;background-position:center;
+}
+.photo-band--shingledetail{
+  background:
+    linear-gradient(180deg, rgba(28,51,80,0.08) 0%, rgba(28,51,80,0.7) 100%),
+    url('./images/shingle-nail-detail.jpg');
+  background-size:cover;background-position:center 35%;
+}
+.photo-band--icedam{
+  background:
+    linear-gradient(180deg, rgba(28,51,80,0.1) 0%, rgba(28,51,80,0.72) 100%),
+    url('./images/ice-dam-roofline.jpg');
+  background-size:cover;background-position:center 30%;
 }
 
 /* About */
