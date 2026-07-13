@@ -380,7 +380,7 @@
   window.addEventListener("message", function (e) {
     if (e.data && e.data.type === "yrs-form-height") {
       var frame = document.querySelector(".quote-frame");
-      if (frame) frame.style.height = Math.max(e.data.height + 24, 500) + "px";
+      if (frame) frame.style.height = Math.min(Math.max(e.data.height + 24, 500), 1600) + "px";
     }
   });
 </script>
