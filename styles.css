@@ -178,6 +178,30 @@ section{padding:88px 0;}
     url('./images/ladder.jpg');
   background-size:cover;background-position:center;
 }
+.photo-band--paradise{
+  background:
+    linear-gradient(180deg, rgba(28,51,80,0.08) 0%, rgba(28,51,80,0.62) 100%),
+    url('./images/paradise-roofline.jpg');
+  background-size:cover;background-position:center 35%;
+}
+.photo-band--action{
+  background:
+    linear-gradient(180deg, rgba(28,51,80,0.08) 0%, rgba(28,51,80,0.68) 100%),
+    url('./images/hands-on-repair.jpg');
+  background-size:cover;background-position:center 30%;
+}
+.photo-band--compare{
+  background:
+    linear-gradient(180deg, rgba(28,51,80,0.08) 0%, rgba(28,51,80,0.68) 100%),
+    url('./images/shingle-comparison.jpg');
+  background-size:cover;background-position:center;
+}
+.photo-band--flatroof{
+  background:
+    linear-gradient(180deg, rgba(28,51,80,0.1) 0%, rgba(28,51,80,0.72) 100%),
+    url('./images/flat-roof-work.jpg');
+  background-size:cover;background-position:center 40%;
+}
 
 /* About */
 .about-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:48px;align-items:center;}
@@ -266,7 +290,7 @@ section{padding:88px 0;}
 
 /* Footer */
 footer{background:var(--ink);color:rgba(255,255,255,0.72);padding:56px 0 26px;font-size:13.5px;}
-.footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr 1fr;gap:32px;margin-bottom:36px;}
+.footer-grid{display:grid;grid-template-columns:1.2fr repeat(5,1fr);gap:28px;margin-bottom:36px;}
 @media (max-width:900px){ .footer-grid{grid-template-columns:1fr 1fr;} }
 @media (max-width:520px){ .footer-grid{grid-template-columns:1fr;} }
 footer h4{color:var(--white);font-size:12.5px;margin-bottom:14px;letter-spacing:0.5px;text-transform:uppercase;color:rgba(255,255,255,0.55);}
