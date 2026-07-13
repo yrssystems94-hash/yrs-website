@@ -95,14 +95,17 @@ nav a:hover{color:var(--navy);}
 .hero h1{font-size:clamp(34px,5vw,56px);color:var(--white);margin-bottom:16px;max-width:780px;font-weight:650;}
 .hero p.lead{font-size:18px;color:rgba(255,255,255,0.85);max-width:480px;margin-bottom:28px;font-weight:400;letter-spacing:-0.005em;}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:34px;}
-.trust-row{display:flex;gap:22px;flex-wrap:wrap;align-items:center;}
-.trust-pill{
-  display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;color:rgba(255,255,255,0.85);
-  background:rgba(255,255,255,0.08);padding:8px 14px;border-radius:10px;
+.hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(15,25,40,0.55);backdrop-filter:blur(6px);
+  border:1px solid rgba(255,255,255,0.18);
+  color:var(--white);font-size:13px;font-weight:700;letter-spacing:-0.005em;
+  padding:9px 18px;border-radius:999px;
+  transition:background .15s ease;
 }
-.trust-pill .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);}
-.trust-pill--link{transition:background .15s ease;}
-.trust-pill--link:hover{background:rgba(255,255,255,0.16);}
+.hero-badge:hover{background:rgba(15,25,40,0.72);}
+.hero-badge .star{color:var(--gold);}
 
 /* Compact sub-page hero (article/FAQ pages) */
 .hero--sub{min-height:0;align-items:flex-start;}
