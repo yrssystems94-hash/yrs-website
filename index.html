@@ -34,7 +34,15 @@
   "description": "Professional roof leak repair, replacement, and emergency roofing services in Kitchener, Waterloo, Cambridge, Elmira & Guelph. Same-day response for active leaks.",
   "telephone": "+1-519-721-4969",
   "email": "info@yrsroofing.com",
-  "areaServed": ["Kitchener","Waterloo","Cambridge","Elmira","Guelph"],
+  "areaServed": [
+    {"@type": "City", "name": "Waterloo"},
+    {"@type": "City", "name": "Kitchener"},
+    {"@type": "Place", "name": "Deer Ridge", "containedInPlace": {"@type": "City", "name": "Kitchener"}},
+    {"@type": "Place", "name": "Hidden Valley", "containedInPlace": {"@type": "City", "name": "Kitchener"}},
+    {"@type": "City", "name": "Cambridge"},
+    {"@type": "City", "name": "Elmira"},
+    {"@type": "City", "name": "Guelph"}
+  ],
   "url": "https://www.yrsroofing.com",
   "logo": "https://www.yrsroofing.com/images/yrs-logo.png",
   "image": "https://www.yrsroofing.com/images/hero-roofline.jpg",
