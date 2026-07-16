@@ -209,8 +209,8 @@ section{padding:88px 0;}
 .photo-band--reroof{
   background:
     linear-gradient(180deg, rgba(28,51,80,0.08) 0%, rgba(28,51,80,0.68) 100%),
-    url('./images/finished-reroof.jpg');
-  background-size:cover;background-position:center;
+    url('./images/finished-roofline-71countryway.jpg');
+  background-size:cover;background-position:center 30%;
 }
 .photo-band--shingledetail{
   background:
