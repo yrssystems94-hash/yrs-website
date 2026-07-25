@@ -246,6 +246,37 @@ section{padding:88px 0;}
 .cred p a{color:var(--navy);border-bottom:1px solid var(--line);}
 .cred p a:hover{border-bottom-color:var(--gold);}
 
+/* Neighbourhood links — the replacement page acts as the hub for the area pages */
+.area-links{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+@media (max-width:900px){ .area-links{grid-template-columns:repeat(2,1fr);} }
+@media (max-width:560px){ .area-links{grid-template-columns:1fr;} }
+.area-link{
+  display:block;background:var(--white);border:1px solid var(--line);
+  border-radius:var(--radius);padding:18px 20px;
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.area-link:hover{transform:translateY(-2px);box-shadow:var(--shadow);}
+.area-link strong{display:block;font-size:16px;color:var(--navy-deep);margin-bottom:4px;font-weight:600;letter-spacing:-0.01em;}
+.area-link span{font-size:13.5px;color:var(--ink-soft);line-height:1.45;}
+
+/* Build-era table — used on neighbourhood pages where roof age varies by sub-area.
+   Wrapper scrolls on narrow screens so the page body never scrolls sideways. */
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:18px 0 10px;}
+.era-table{width:100%;border-collapse:collapse;font-size:15px;min-width:520px;}
+.era-table th{
+  text-align:left;font-size:11.5px;font-weight:700;letter-spacing:0.06em;
+  text-transform:uppercase;color:var(--gold-deep);
+  border-bottom:1.5px solid var(--line);padding:0 16px 8px 0;white-space:nowrap;
+}
+.era-table td{
+  padding:10px 16px 10px 0;border-bottom:1px solid var(--line);
+  color:var(--ink);vertical-align:top;line-height:1.45;
+}
+.era-table td:first-child{font-weight:600;}
+.era-table td:nth-child(2){white-space:nowrap;color:var(--ink-soft);}
+.era-table .muted{font-weight:400;color:var(--ink-soft);font-size:13.5px;}
+.tbl-note{font-size:13.5px;color:var(--ink-soft);line-height:1.55;margin-top:4px;}
+
 /* About */
 .about-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:48px;align-items:center;}
 @media (max-width:900px){ .about-grid{grid-template-columns:1fr;} }
