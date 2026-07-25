@@ -225,6 +225,27 @@ section{padding:88px 0;}
   background-size:cover;background-position:center 40%;
 }
 
+/* Credentials band — certifications are the #1 factor in a replacement decision,
+   so they get their own strip directly under the hero rather than buried in body copy */
+.creds-band{
+  background:var(--cream-card);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  padding:28px 0;
+}
+.creds-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:28px;
+}
+@media (max-width:900px){ .creds-grid{grid-template-columns:repeat(2,1fr);gap:22px;} }
+@media (max-width:520px){ .creds-grid{grid-template-columns:1fr;gap:18px;} }
+.cred-label{
+  display:block;font-size:12px;font-weight:700;letter-spacing:0.7px;
+  text-transform:uppercase;color:var(--gold-deep);margin-bottom:6px;
+}
+.cred p{font-size:14px;color:var(--ink-soft);line-height:1.5;}
+.cred p a{color:var(--navy);border-bottom:1px solid var(--line);}
+.cred p a:hover{border-bottom-color:var(--gold);}
+
 /* About */
 .about-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:48px;align-items:center;}
 @media (max-width:900px){ .about-grid{grid-template-columns:1fr;} }
