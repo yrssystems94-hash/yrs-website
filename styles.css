@@ -218,6 +218,18 @@ section{padding:88px 0;}
     url('./images/shingle-nail-detail.jpg');
   background-size:cover;background-position:center 35%;
 }
+.photo-band--aerialcomplex{
+  background:
+    linear-gradient(180deg, rgba(28,51,80,0.12) 0%, rgba(28,51,80,0.72) 100%),
+    url('./images/aerial-complex-roof.jpg');
+  background-size:cover;background-position:center 40%;
+}
+.photo-band--nailing{
+  background:
+    linear-gradient(180deg, rgba(28,51,80,0.1) 0%, rgba(28,51,80,0.7) 100%),
+    url('./images/ridge-nailing-detail.jpg');
+  background-size:cover;background-position:center 45%;
+}
 .photo-band--icedam{
   background:
     linear-gradient(180deg, rgba(28,51,80,0.15) 0%, rgba(28,51,80,0.75) 100%),
@@ -245,6 +257,19 @@ section{padding:88px 0;}
 .cred p{font-size:14px;color:var(--ink-soft);line-height:1.5;}
 .cred p a{color:var(--navy);border-bottom:1px solid var(--line);}
 .cred p a:hover{border-bottom-color:var(--gold);}
+
+/* Inline photo inside an .article — used where a real job photo proves a claim
+   the copy is making (system layers, eave protection) rather than decorating. */
+.inline-photo{
+  margin:26px 0 8px;
+}
+.inline-photo img{
+  width:100%;border-radius:var(--radius);box-shadow:var(--shadow);
+  aspect-ratio:16/9;object-fit:cover;
+}
+.inline-photo figcaption{
+  font-size:13.5px;color:var(--ink-soft);line-height:1.5;margin-top:10px;
+}
 
 /* Neighbourhood links — the replacement page acts as the hub for the area pages */
 .area-links{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
