@@ -407,3 +407,16 @@ footer a:hover{color:var(--gold);}
 .footer-bottom{border-top:1px solid rgba(255,255,255,0.12);padding-top:20px;font-size:12px;color:rgba(255,255,255,0.5);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
 .footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
 .footer-logo{height:56px;width:auto;}
+
+/* Lending-partner lockup. The supplied Financeit artwork sits on its own white
+   card so it is never recoloured or placed on the navy. Appended last so
+   ".partner-mark p" wins over ".article p" at equal specificity — both are
+   (0,1,1), so source order is the only thing deciding it. */
+.partner-mark{
+  display:flex;align-items:center;gap:24px;flex-wrap:wrap;
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px 26px;box-shadow:var(--shadow);margin:30px 0 0;
+}
+.partner-mark img{height:38px;width:auto;flex:0 0 auto;}
+.partner-mark p{margin:0;font-size:14px;line-height:1.55;color:var(--ink-soft);max-width:430px;}
+@media (max-width:560px){ .partner-mark{gap:16px;padding:22px;} .partner-mark img{height:32px;} }
