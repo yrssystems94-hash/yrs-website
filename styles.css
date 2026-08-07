@@ -506,3 +506,10 @@ footer a:hover{color:var(--gold);}
 .hero-finance:hover{background:rgba(15,25,40,0.82);border-color:rgba(201,150,46,0.85);}
 .hero-finance img{height:23px;}
 @media (max-width:520px){ .hero-finance{font-size:12px;padding:10px 17px;} .hero-finance img{height:19px;} }
+
+/* .btn-gold was white-on-gold at 2.66:1 — a WCAG AA failure on the single most
+   important button on the site, and the largest block of gold above the fold.
+   White ground with navy type is 12.8:1 and reads cleaner on the navy hero.
+   Gold stays as an accent in type, not as a large fill. */
+.btn-gold{background:var(--white);color:var(--navy-deep);}
+.btn-gold:hover{background:rgba(255,255,255,0.88);color:var(--navy-deep);}
