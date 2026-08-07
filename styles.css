@@ -513,3 +513,78 @@ footer a:hover{color:var(--gold);}
    Gold stays as an accent in type, not as a large fill. */
 .btn-gold{background:var(--white);color:var(--navy-deep);}
 .btn-gold:hover{background:rgba(255,255,255,0.88);color:var(--navy-deep);}
+
+/* Gold restored on the primary button, but with NAVY type rather than the
+   original white. White on this gold was 2.66:1 and failed WCAG AA; navy on
+   the same gold is 4.81:1 and passes, so the colour James wants stays and the
+   contrast defect does not come back with it. */
+.btn-gold{background:var(--gold);color:var(--navy-deep);}
+.btn-gold:hover{background:var(--gold-deep);color:var(--white);}
+
+/* Financeit band — the small hero chip was unreadable ("way too small"), so the
+   lockup moves out of the hero into its own band directly beneath it, sized the
+   way Financeit present it in their own marketing banners: large mark on a dark
+   ground with a single obvious action. Reversed artwork, navy ground. */
+.finance-band{
+  background:var(--navy-deep);
+  border-bottom:1px solid rgba(255,255,255,0.10);
+  padding:26px 0;
+}
+.finance-band-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:28px;flex-wrap:wrap;
+}
+.finance-band-copy{display:flex;align-items:center;gap:26px;flex-wrap:wrap;min-width:0;}
+/* ~2.5x the old chip, and set against the wordmark rather than cropped */
+.finance-band-logo{height:46px;width:auto;flex:0 0 auto;display:block;}
+.finance-band-text{display:flex;flex-direction:column;gap:4px;min-width:0;}
+.finance-band-text strong{
+  color:var(--white);font-size:17px;font-weight:650;letter-spacing:-0.01em;
+}
+.finance-band-text span{color:rgba(255,255,255,0.68);font-size:14px;}
+.finance-band-actions{display:flex;gap:12px;flex-wrap:wrap;flex:0 0 auto;}
+.finance-band-actions .btn{padding:11px 24px;font-size:14.5px;}
+
+@media (max-width:900px){
+  .finance-band-inner{flex-direction:column;align-items:flex-start;gap:20px;}
+  .finance-band-actions{width:100%;}
+}
+@media (max-width:560px){
+  .finance-band{padding:22px 0;}
+  .finance-band-copy{gap:16px;}
+  .finance-band-logo{height:34px;}
+  .finance-band-text strong{font-size:15.5px;}
+  .finance-band-text span{font-size:13px;}
+  .finance-band-actions .btn{flex:1 1 auto;justify-content:center;}
+}
+
+/* Band sits above the hero so financing is visible on arrival rather than after
+   a scroll. Slimmer here than it would be lower down, and the hero's top
+   padding is trimmed to buy back most of the height it costs, so the hero CTAs
+   stay above the fold on normal laptop viewports. */
+.finance-band{padding:17px 0;border-top:1px solid rgba(255,255,255,0.08);}
+.finance-band-logo{height:38px;}
+.finance-band-text strong{font-size:16px;}
+.hero-inner{padding:40px 24px 46px;}
+@media (max-width:560px){ .finance-band-logo{height:30px;} }
+
+/* Short viewports (1366x768 and the like) can't fit the band, the full hero and
+   the CTAs at once. Rather than shrink the band for everyone, compact both only
+   where vertical space is actually tight, so tall screens keep the full-size
+   lockup. */
+@media (max-height:820px){
+  .finance-band{padding:12px 0;}
+  .finance-band-logo{height:31px;}
+  .finance-band-text span{display:none;}
+  .hero-inner{padding:28px 24px 32px;}
+  .hero p.lead{margin-bottom:20px;}
+  .hero-badges{margin-bottom:14px;}
+}
+@media (max-height:740px){
+  .finance-band{padding:10px 0;}
+  .finance-band-logo{height:28px;}
+  .finance-band-text strong{font-size:15px;}
+  .hero-inner{padding:22px 24px 26px;}
+  .hero-badges{margin-bottom:11px;}
+  .hero p.lead{margin-bottom:16px;}
+}
