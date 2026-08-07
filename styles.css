@@ -486,8 +486,8 @@ footer a:hover{color:var(--gold);}
 .cta-final-actions{gap:14px;}
 /* every page carries exactly two buttons here, both .btn-navy — which would be
    invisible on a navy panel, so they are re-cast as primary and secondary */
-.cta-final-actions .btn-navy:first-child{background:var(--gold);color:var(--navy-deep);}
-.cta-final-actions .btn-navy:first-child:hover{background:var(--white);color:var(--navy-deep);}
+.cta-final-actions .btn-navy:first-child{background:var(--white);color:var(--navy-deep);}
+.cta-final-actions .btn-navy:first-child:hover{background:rgba(255,255,255,0.88);color:var(--navy-deep);}
 .cta-final-actions .btn-navy:last-child{
   background:transparent;color:var(--white);border-color:rgba(255,255,255,0.42);
 }
