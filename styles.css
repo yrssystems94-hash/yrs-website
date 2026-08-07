@@ -441,3 +441,68 @@ footer a:hover{color:var(--gold);}
   .hero-finance{font-size:11.5px;gap:7px;}
   .hero-finance img{height:15px;}
 }
+
+/* ============================================================
+   Emergency strip + final CTA, reworked.
+   The originals read cheap for the same underlying reason: a large flat slab
+   of saturated colour. The strip was a full-bleed block of --red, and the CTA
+   was an all-gold panel, which also inverted the brand hierarchy (navy is the
+   primary, gold is the accent). Both now sit on navy and spend their accent
+   colour in one small place. Appended last, so these win over the earlier
+   .emergency-strip / .cta-final rules at equal specificity.
+   ============================================================ */
+
+/* Urgency without the red slab: the signal moves into a small indicator dot. */
+.emergency-strip{
+  background:var(--navy-deep);
+  border-top:1px solid rgba(255,255,255,0.10);
+  border-bottom:1px solid rgba(255,255,255,0.10);
+  padding:19px 0;
+}
+.emergency-strip strong{
+  display:inline-flex;align-items:center;gap:11px;
+  font-size:15px;font-weight:600;letter-spacing:-0.005em;
+  color:rgba(255,255,255,0.94);
+}
+.emergency-strip strong::before{
+  content:"";flex:0 0 auto;width:8px;height:8px;border-radius:50%;
+  background:var(--red);box-shadow:0 0 0 4px rgba(200,67,61,0.24);
+}
+.emergency-strip .btn{
+  background:transparent;color:var(--white);
+  border-color:rgba(255,255,255,0.38);
+  padding:9px 20px;font-size:13.5px;
+}
+.emergency-strip .btn:hover{background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.62);}
+
+/* Navy panel, gold spent only on the primary action. */
+.cta-final{
+  background:linear-gradient(150deg,var(--navy-deep) 0%,var(--navy) 100%);
+  border:1px solid rgba(255,255,255,0.10);
+  border-radius:22px;padding:60px 44px;
+  box-shadow:0 26px 60px rgba(28,51,80,0.20);
+}
+.cta-final p{color:rgba(255,255,255,0.76);margin-bottom:30px;}
+.cta-final-actions{gap:14px;}
+/* every page carries exactly two buttons here, both .btn-navy — which would be
+   invisible on a navy panel, so they are re-cast as primary and secondary */
+.cta-final-actions .btn-navy:first-child{background:var(--gold);color:var(--navy-deep);}
+.cta-final-actions .btn-navy:first-child:hover{background:var(--white);color:var(--navy-deep);}
+.cta-final-actions .btn-navy:last-child{
+  background:transparent;color:var(--white);border-color:rgba(255,255,255,0.42);
+}
+.cta-final-actions .btn-navy:last-child:hover{background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.65);}
+@media (max-width:560px){ .cta-final{padding:44px 24px;border-radius:18px;} }
+
+/* Financeit badge: was too quiet to read at a glance ("what is that?"). Bigger
+   artwork and a gold-tinted edge so it reads as its own thing rather than a
+   third grey rating chip. */
+.hero-finance{
+  background:rgba(15,25,40,0.68);
+  border-color:rgba(201,150,46,0.55);
+  color:rgba(255,255,255,0.94);
+  padding:11px 21px;gap:11px;font-size:13.5px;
+}
+.hero-finance:hover{background:rgba(15,25,40,0.82);border-color:rgba(201,150,46,0.85);}
+.hero-finance img{height:23px;}
+@media (max-width:520px){ .hero-finance{font-size:12px;padding:10px 17px;} .hero-finance img{height:19px;} }
