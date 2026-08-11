@@ -588,3 +588,28 @@ footer a:hover{color:var(--gold);}
   .hero-badges{margin-bottom:11px;}
   .hero p.lead{margin-bottom:16px;}
 }
+
+/* Colour-name lists. 26 names as a single bullet column is a wall; three columns
+   keeps them scannable. break-inside guards against a name splitting across a
+   column boundary. */
+.colour-cols{
+  columns:3;column-gap:26px;list-style:none;margin:0 0 18px;padding:0;
+}
+.colour-cols li{
+  break-inside:avoid;color:var(--ink);font-size:15px;padding:5px 0 5px 14px;
+  position:relative;margin:0;
+}
+.colour-cols li::before{
+  content:"";position:absolute;left:0;top:12px;width:5px;height:5px;
+  border-radius:50%;background:var(--gold-deep);
+}
+@media (max-width:700px){ .colour-cols{columns:2;column-gap:18px;} }
+@media (max-width:420px){ .colour-cols{columns:1;} }
+
+/* Eight nav items don't fit the 900–1100px band at the default 30px gap — the row
+   wrapped to two lines and collided with the header CTA. Tighten the gap (and
+   nudge the type down at the very bottom of the band) rather than drop an item,
+   so the nav stays identical on every page and at every width where it shows. */
+@media (max-width:1100px){ nav{gap:19px;} }
+@media (max-width:980px){ nav{gap:14px;} nav a{font-size:13px;} }
+@media (max-width:930px){ nav{gap:11px;} nav a{font-size:12.5px;} .header-cta{gap:11px;} }
