@@ -739,7 +739,7 @@ html.nav-locked body{overflow:hidden;position:fixed;width:100%;}
   z-index:-1;
   pointer-events:none;
 }
-.spring-band .wrap{ max-width:720px; }
+.spring-band .wrap{ max-width:640px; text-align:center; }
 .spring-badge{
   display:inline-flex; align-items:center; gap:8px;
   padding:7px 14px; border-radius:100px;
@@ -747,7 +747,7 @@ html.nav-locked body{overflow:hidden;position:fixed;width:100%;}
   border:1px solid rgba(255,255,255,0.18);
   color:rgba(255,255,255,0.88);
   font-size:13px; font-weight:500;
-  margin-bottom:16px;
+  margin:0 0 16px;
 }
 .spring-dot{
   width:6px; height:6px; border-radius:50%;
@@ -762,11 +762,11 @@ html.nav-locked body{overflow:hidden;position:fixed;width:100%;}
   font-size:clamp(26px,3.6vw,36px);
   color:var(--white); font-weight:650;
   letter-spacing:-0.02em;
-  margin:0 0 12px; max-width:20ch;
+  margin:0 auto 12px; max-width:16ch;
 }
 .spring-band-p{
   font-size:16px; color:rgba(255,255,255,0.78);
-  max-width:52ch; margin:0 0 22px;
+  max-width:46ch; margin:0 auto 22px;
 }
 .spring-band-actions{ margin-bottom:18px; }
 .spring-details summary{
@@ -791,6 +791,7 @@ html.nav-locked body{overflow:hidden;position:fixed;width:100%;}
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:18px;
+  text-align:left;
 }
 .spring-step{ display:flex; gap:10px; }
 .spring-step-num{
