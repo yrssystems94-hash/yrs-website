@@ -35,6 +35,7 @@
 {
   "@context": "https://schema.org",
   "@type": "RoofingContractor",
+  "@id": "https://www.yrsroofing.com/#business",
   "name": "Your Roof Specialist",
   "alternateName": "YRS Roofing",
   "description": "Roofing contractor serving Kitchener, Waterloo, Cambridge, Elmira & Guelph since 2012. CertainTeed certified installers holding the Master Craftsman Roofing Contractor credential, installing CertainTeed Landmark shingles with full tear-off on every replacement. 4.9 stars from 384 Google reviews. Monthly payment financing available on roof replacements through Financeit. Same-day response for active leaks.",
@@ -68,18 +69,19 @@
     }
   ],
   "areaServed": [
-    {"@type": "City", "name": "Waterloo"},
-    {"@type": "City", "name": "Kitchener"},
+    {"@type": "City", "name": "Waterloo", "containedInPlace": {"@type": "AdministrativeArea", "name": "Ontario"}},
+    {"@type": "City", "name": "Kitchener", "containedInPlace": {"@type": "AdministrativeArea", "name": "Ontario"}},
     {"@type": "Place", "name": "Deer Ridge", "containedInPlace": {"@type": "City", "name": "Kitchener"}},
     {"@type": "Place", "name": "Hidden Valley", "containedInPlace": {"@type": "City", "name": "Kitchener"}},
     {"@type": "Place", "name": "Westmount"},
     {"@type": "Place", "name": "Beechwood", "containedInPlace": {"@type": "City", "name": "Waterloo"}},
     {"@type": "Place", "name": "Upper Beechwood", "containedInPlace": {"@type": "City", "name": "Waterloo"}},
     {"@type": "Place", "name": "Eastbridge", "containedInPlace": {"@type": "City", "name": "Waterloo"}},
-    {"@type": "City", "name": "Cambridge"},
-    {"@type": "City", "name": "Elmira"},
-    {"@type": "City", "name": "Guelph"}
+    {"@type": "City", "name": "Cambridge", "containedInPlace": {"@type": "AdministrativeArea", "name": "Ontario"}},
+    {"@type": "City", "name": "Elmira", "containedInPlace": {"@type": "AdministrativeArea", "name": "Ontario"}},
+    {"@type": "City", "name": "Guelph", "containedInPlace": {"@type": "AdministrativeArea", "name": "Ontario"}}
   ],
+  "currenciesAccepted": "CAD",
   "url": "https://www.yrsroofing.com/",
   "logo": "https://www.yrsroofing.com/images/yrs-logo.png",
   "image": "https://www.yrsroofing.com/images/hero-roofline.jpg",
@@ -89,13 +91,30 @@
     "https://www.facebook.com/yrsrepairs/",
     "https://www.homestars.com/profile/2885538-your-roof-specialist",
     "https://threebestrated.ca/roofing-contractors-in-kitchener-on",
-    "https://www.bbb.org/ca/on/kitchener/profile/roofing-contractors/your-roof-specialist-0107-1363868"
+    "https://www.bbb.org/ca/on/kitchener/profile/roofing-contractors/your-roof-specialist-0107-1363868",
+    "https://www.yelp.ca/biz/your-roof-specialist-kitchener-2"
   ],
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "384",
-    "bestRating": "5"
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Roofing Services",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Roof Replacement", "description": "CertainTeed certified full tear-off roof replacement with a leak-free guarantee.", "url": "https://www.yrsroofing.com/roof-replacement-kitchener-waterloo/"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Emergency Roof Repair", "description": "Same-day priority response for active roof leaks and storm damage in Kitchener-Waterloo.", "url": "https://www.yrsroofing.com/emergency-roof-repair-kitchener-waterloo/"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Shingle Repair", "description": "Precise repair of missing, cracked or curling shingles, matched to your existing roof.", "url": "https://www.yrsroofing.com/shingle-repair/"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Roof Leak Diagnosis", "description": "Finding the real source of a roof leak rather than patching the symptom.", "url": "https://www.yrsroofing.com/roof-leak-diagnosis-kitchener-waterloo/"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Ice Dam Removal", "description": "Safe ice dam removal and prevention for Kitchener-Waterloo winters.", "url": "https://www.yrsroofing.com/ice-dam-removal-in-kitchener-waterloo/"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Roof Deck Rot Repair", "description": "Replacement of rotted roof sheathing and decking discovered during tear-off or repair.", "url": "https://www.yrsroofing.com/roof-deck-rot-repair-kitchener-waterloo/"}}
+    ]
+  },
+  "potentialAction": {
+    "@type": "ReserveAction",
+    "name": "Get a Free Quote",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://request.yrsroofing.com/",
+      "inLanguage": "en-CA",
+      "actionPlatform": ["https://schema.org/DesktopWebPlatform", "https://schema.org/MobileWebPlatform"]
+    }
   },
   "openingHoursSpecification": [
     {
@@ -552,7 +571,7 @@
       <p>We'd rather you check our reviews on Google than take our word for it.</p>
     </div>
     <div class="badges">
-      <a class="badge badge--link" href="https://www.google.com/maps?q=yrsroofing" target="_blank" rel="noopener"><div class="val">4.9★ Google</div><div class="lbl">380 Reviews</div></a>
+      <a class="badge badge--link" href="https://www.google.com/maps?q=yrsroofing" target="_blank" rel="noopener"><div class="val">4.9★ Google</div><div class="lbl">384 Reviews</div></a>
       <a class="badge badge--link" href="https://threebestrated.ca/roofing-contractors-in-kitchener-on" target="_blank" rel="noopener"><div class="val">3 Best Rated</div><div class="lbl">Award Winner</div></a>
       <div class="badge"><div class="val">24–48h</div><div class="lbl">Response Time</div></div>
     </div>
