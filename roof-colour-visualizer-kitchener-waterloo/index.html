@@ -98,7 +98,7 @@
 }
 </script>
 <link rel="stylesheet" href="../styles.css?v=21">
-<link rel="stylesheet" href="./colour-studio.css?v=1">
+<link rel="stylesheet" href="./studio.css?v=1">
 </head>
 <body>
 
@@ -237,57 +237,102 @@
   </div>
 </section>
 
-<section class="cs-tool" id="colour-studio-tool">
+<section class="st-tool" id="colour-studio-tool">
   <div class="wrap">
     <div class="section-head">
       <span class="kicker">Try It On Your Roof</span>
       <h2>See it before you commit</h2>
-      <p>Choosing a roof colour from a brochure is guesswork — a two-inch chip and two thousand square feet of roof are not the same experience. Upload a photo of your own house below, trace the roofline in a few taps, and try our real Landmark colours on it. Nothing is uploaded to us or anyone else — it all happens right here in your browser.</p>
+      <p>Outline your roof, and we lay the real shingle on it &mdash; the actual CertainTeed product photography, bent to your roof&rsquo;s angle and lit by the shadows already in your picture. Nothing is uploaded; it all happens in your browser.</p>
     </div>
-    <div class="cs-shell">
-      <div class="cs-stage" id="csUpload">
-        <div class="cs-drop" id="csDrop" tabindex="0" role="button" aria-label="Upload a photo of your home">
-          <svg class="cs-drop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 16V4M12 4l-4 4M12 4l4 4" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <p class="cs-drop-title">Drag a photo of your home here</p>
-          <p class="cs-drop-sub">or tap to choose one from your phone or computer</p>
-          <input type="file" id="csFileInput" accept="image/*" hidden>
+
+    <div id="stRoot">
+      <div class="st-desktop-only">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4" stroke-linecap="round"/></svg>
+        <h3>Best on a computer</h3>
+        <p>The Colour Studio needs a mouse and a bigger screen &mdash; you&rsquo;re outlining your roof and comparing colours side by side, and that&rsquo;s fiddly on a phone.</p>
+        <p>Open <strong>yrsroofing.com</strong> on a laptop or desktop and you&rsquo;ll find it on this page.</p>
+        <div class="st-do-actions">
+          <a class="btn btn-navy" href="../index.html#get-quote">Request a Free Estimate</a>
+          <a class="btn btn-ghost" href="tel:5197214969">Call (519) 721-4969</a>
         </div>
-        <button class="btn btn-ghost cs-sample-btn" id="csSampleBtn" type="button">Try it on a sample roof instead</button>
-        <p class="cs-privacy-note">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
-          Your photo is never uploaded — it stays on this device the whole time.
-        </p>
       </div>
 
-      <div class="cs-stage" id="csEditor" hidden style="padding:0;">
-        <div class="cs-toolbar">
-          <div class="cs-step-label" id="csStepLabel">Step 1 of 2 — Trace your roof</div>
-          <div class="cs-toolbar-actions">
-            <button class="cs-tbtn" id="csUndo" type="button">Undo point</button>
-            <button class="cs-tbtn" id="csNewSection" type="button">+ Add roof section</button>
-            <button class="cs-tbtn" id="csReset" type="button">Start over</button>
+      <div class="st-shell">
+        <div class="st-upload" id="stUpload">
+          <div class="st-drop" id="stDrop" tabindex="0" role="button" aria-label="Choose a photo of your home">
+            <svg class="st-drop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 16V4M12 4l-4 4M12 4l4 4" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <p class="st-drop-title">Drag a photo of your home here</p>
+            <p class="st-drop-sub">or click to choose one &mdash; a straight-on shot of the roof works best</p>
+            <input type="file" id="stFile" accept="image/*" hidden>
           </div>
-        </div>
-        <div class="cs-canvas-wrap" id="csCanvasWrap">
-          <canvas id="csCanvas"></canvas>
-          <div class="cs-hint" id="csHint"><span class="cs-hint-pill">Tap around the edge of your roof, then tap the first point again to close the shape.</span></div>
-          <div class="cs-recolouring" id="csRecolouring"><span class="cs-spin"></span>Recolouring…</div>
-        </div>
-        <div class="cs-continue" id="csContinueWrap" hidden>
-          <button class="btn btn-navy" id="csContinueBtn" type="button">Looks good → See colours</button>
-        </div>
-        <div class="cs-colours" id="csColours" hidden>
-          <div class="cs-swatches" id="csSwatches"></div>
-          <p class="cs-swatch-note">Preview colours are a calibrated approximation of the real granule blends, shown with your own photo's lighting and shadows — not a colour match. We bring physical samples on site to confirm before anything is ordered.</p>
-          <div class="cs-result-actions">
-            <button class="cs-tbtn" id="csBeforeAfter" type="button">Hold to compare original</button>
-            <button class="btn btn-ghost" id="csDownload" type="button">Download this image</button>
-            <a class="btn btn-navy" id="csQuoteBtn" href="../index.html#get-quote">Get a Free Estimate for This Colour</a>
+          <div class="st-upload-actions">
+            <button class="btn btn-ghost" id="stSample" type="button">Try it on a sample house</button>
           </div>
+          <p class="st-privacy">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
+            Your photo is never uploaded &mdash; it stays on this computer the whole time.
+          </p>
+          <div class="st-error" id="stError" hidden></div>
+        </div>
+
+        <div class="st-studio" id="stStudio" hidden>
+          <div class="st-stage-col">
+            <div class="st-stage" id="stStage">
+              <div class="st-canvas-holder" id="stHolder">
+                <canvas id="stCanvas"></canvas>
+              </div>
+              <div class="st-hint" id="stHint"><span class="st-hint-pill" id="stHintText"></span></div>
+              <div class="st-busy" id="stBusy"><span class="st-spin"></span><span id="stBusyText">Working&hellip;</span></div>
+            </div>
+
+            <div class="st-bar">
+              <span class="st-bar-step" id="stStep">Step 1 &mdash; outline a roof face</span>
+              <button class="st-gbtn" id="stUndo" type="button">Undo</button>
+              <button class="st-gbtn" id="stAddFace" type="button">+ Another face</button>
+              <button class="st-gbtn" id="stRestart" type="button">Start over</button>
+            </div>
+            <div class="st-bar">
+              <span class="st-seg-label">Light</span>
+              <div class="st-seg" id="stLight">
+                <button type="button" data-light="midday" class="is-on">Midday</button>
+                <button type="button" data-light="overcast">Overcast</button>
+                <button type="button" data-light="golden">Golden hour</button>
+              </div>
+              <span class="st-seg-label">Distance</span>
+              <div class="st-seg" id="stView">
+                <button type="button" data-view="roof" class="is-on">At the roof</button>
+                <button type="button" data-view="street">From the street</button>
+              </div>
+              <button class="st-gbtn" id="stCompareBtn" type="button">Compare before / after</button>
+              <button class="st-gbtn" id="stBrickBtn" type="button">Match my brick</button>
+            </div>
+
+            <div class="st-tray">
+              <span class="st-tray-label">Shortlist</span>
+              <div class="st-tray-slots" id="stTraySlots"></div>
+              <span class="st-tray-note" id="stTrayNote">Star a colour to shortlist it</span>
+              <button class="st-gbtn" id="stCompare3" type="button">Compare side by side</button>
+            </div>
+          </div>
+
+          <aside class="st-rail" id="stRail">
+            <div class="st-rail-head">
+              <h3>CertainTeed colours</h3>
+              <p id="stRailSub">Outline a roof face first</p>
+            </div>
+            <div class="st-rail-scroll" id="stRailScroll"></div>
+          </aside>
+        </div>
+
+        <div class="st-foot" id="stFoot" hidden>
+          <p class="st-foot-note" id="stFootNote">Pick a colour to see it on your roof.</p>
+          <button class="btn btn-ghost" id="stDownload" type="button">Download this image</button>
+          <a class="btn btn-navy" id="stQuote" href="../index.html#get-quote">Get a Free Estimate</a>
         </div>
       </div>
     </div>
-    <p class="cs-certainteed-note">Prefer the manufacturer's own tool? <a href="https://colorview.certainteed.com/" target="_blank" rel="noopener">Open CertainTeed ColorView</a> in a new tab.</p>
+
+    <p class="st-under-note">Prefer the manufacturer&rsquo;s own tool? <a href="https://colorview.certainteed.com/" target="_blank" rel="noopener">Open CertainTeed ColorView</a> in a new tab.</p>
   </div>
 </section>
 
@@ -503,6 +548,8 @@
 
 <script src="../videos.js"></script>
 <script src="../menu.js"></script>
-<script src="./colour-studio.js?v=1" defer></script>
+<script src="./colours.js?v=1" defer></script>
+<script src="./projection.js?v=1" defer></script>
+<script src="./studio.js?v=1" defer></script>
 </body>
 </html>

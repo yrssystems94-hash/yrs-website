@@ -1,0 +1,287 @@
+/* Roof Colour Studio — desktop studio layout.
+   Everything is scoped under .st- so nothing leaks into the rest of the site.
+
+   Deliberately desktop-only: below 900px the studio is replaced by a short
+   note asking the visitor to open it on a computer. Tracing roof corners and
+   comparing three colours side by side needs the room and a pointer. */
+
+.st-tool{background:var(--cream);}
+
+/* The studio sits wider than the site's usual 1160px column — it's the point
+   of the page, so it gets the room. */
+.st-shell{
+  max-width:1280px;margin:0 auto;
+  background:#12161c;
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:0 24px 60px rgba(16,28,44,0.22);
+}
+
+/* ---------- the desktop-only gate ---------- */
+.st-desktop-only{display:none;}
+@media (max-width:899px){
+  .st-shell{display:none;}
+  .st-desktop-only{
+    display:block;max-width:560px;margin:0 auto;
+    background:var(--white);border:1px solid var(--line);
+    border-radius:var(--radius);padding:38px 30px;text-align:center;
+    box-shadow:var(--shadow);
+  }
+  .st-desktop-only svg{width:38px;height:38px;margin:0 auto 16px;color:var(--navy);opacity:.5;}
+  .st-desktop-only h3{font-size:20px;margin-bottom:10px;}
+  .st-desktop-only p{color:var(--ink-soft);font-size:15px;margin-bottom:8px;}
+  .st-desktop-only .st-do-actions{margin-top:22px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+}
+
+/* ---------- upload ---------- */
+.st-upload{padding:56px 40px 48px;background:var(--white);}
+.st-drop{
+  border:2px dashed var(--line);border-radius:16px;
+  padding:54px 28px;text-align:center;cursor:pointer;
+  transition:border-color .15s ease,background .15s ease;
+  max-width:620px;margin:0 auto;
+}
+.st-drop:hover,.st-drop:focus-visible,.st-drop.is-drag{
+  border-color:var(--gold);background:rgba(201,150,46,0.06);outline:none;
+}
+.st-drop-icon{width:42px;height:42px;margin:0 auto 16px;color:var(--navy);opacity:.5;}
+.st-drop-title{font-size:19px;font-weight:600;color:var(--navy-deep);margin-bottom:7px;}
+.st-drop-sub{font-size:14.5px;color:var(--ink-soft);}
+.st-upload-actions{display:flex;gap:12px;justify-content:center;margin-top:22px;}
+.st-privacy{
+  display:flex;align-items:center;gap:8px;justify-content:center;
+  margin-top:22px;font-size:12.5px;color:var(--ink-soft);
+}
+.st-privacy svg{width:14px;height:14px;flex:none;color:var(--gold-deep);}
+.st-error{
+  max-width:620px;margin:18px auto 0;text-align:center;
+  background:#FDECEA;border:1px solid #F5C6C2;color:#8C2F29;
+  border-radius:12px;padding:12px 16px;font-size:14px;
+}
+
+/* ---------- studio: stage + rail ---------- */
+/* A definite height is load-bearing, not cosmetic: without it the rail's 49
+   swatches stretch the grid row to ~1800px, the stage grows with it and the
+   photo ends up below the fold. The height bound is what lets the rail
+   scroll inside the panel instead. */
+.st-studio{
+  display:grid;grid-template-columns:1fr 292px;
+  height:clamp(540px, 76vh, 840px);
+}
+
+.st-stage-col{display:flex;flex-direction:column;min-width:0;min-height:0;}
+.st-stage{
+  position:relative;flex:1;min-height:0;background:#0b0e13;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;line-height:0;
+}
+.st-canvas-holder{position:relative;line-height:0;max-width:100%;}
+.st-canvas-holder canvas{
+  display:block;max-width:100%;height:auto;
+  cursor:crosshair;touch-action:none;
+}
+.st-canvas-holder.is-compare canvas{cursor:ew-resize;}
+.st-canvas-holder.is-done canvas{cursor:default;}
+
+/* the drag-to-compare handle */
+.st-compare-line{
+  position:absolute;top:0;bottom:0;width:2px;background:rgba(255,255,255,0.9);
+  box-shadow:0 0 0 1px rgba(0,0,0,0.25);pointer-events:none;
+}
+.st-compare-grip{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:38px;height:38px;border-radius:50%;
+  background:rgba(255,255,255,0.95);box-shadow:0 2px 10px rgba(0,0,0,0.35);
+  display:flex;align-items:center;justify-content:center;
+}
+.st-compare-grip svg{width:18px;height:18px;color:#12161c;}
+.st-compare-tag{
+  position:absolute;top:14px;font-size:11px;font-weight:700;
+  letter-spacing:.09em;text-transform:uppercase;
+  background:rgba(10,14,20,0.72);color:#fff;
+  padding:5px 10px;border-radius:100px;pointer-events:none;
+}
+.st-compare-tag.is-before{left:14px;}
+.st-compare-tag.is-after{right:14px;}
+
+.st-hint{
+  position:absolute;left:0;right:0;bottom:18px;padding:0 20px;
+  display:flex;justify-content:center;pointer-events:none;
+}
+.st-hint-pill{
+  /* .st-stage runs line-height:0 for the canvas; reset it or the wrapped
+     lines of this pill paint on top of each other. */
+  line-height:1.45;
+  background:rgba(10,14,20,0.82);color:#fff;backdrop-filter:blur(6px);
+  font-size:13.5px;padding:10px 18px;border-radius:100px;
+  max-width:100%;text-align:center;
+}
+.st-hint-pill b{color:var(--gold);font-weight:600;}
+
+.st-busy{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  background:rgba(8,11,15,0.45);color:#fff;font-size:13.5px;font-weight:600;
+  opacity:0;pointer-events:none;transition:opacity .15s ease;line-height:1.4;
+}
+.st-busy.is-on{opacity:1;}
+.st-spin{
+  width:16px;height:16px;border-radius:50%;
+  border:2px solid rgba(255,255,255,0.3);border-top-color:#fff;
+  margin-right:10px;animation:st-spin .7s linear infinite;
+}
+@keyframes st-spin{to{transform:rotate(360deg);}}
+@media (prefers-reduced-motion:reduce){
+  .st-spin{animation:none;}
+}
+
+/* ---------- stage toolbar ---------- */
+.st-bar{
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  padding:13px 20px;background:#171c24;border-top:1px solid rgba(255,255,255,0.07);
+}
+.st-bar-step{
+  font-size:12.5px;font-weight:700;color:var(--gold);
+  letter-spacing:.07em;text-transform:uppercase;margin-right:auto;
+}
+.st-seg{display:flex;background:#232a34;border-radius:100px;padding:3px;gap:2px;}
+.st-seg button{
+  border:0;background:none;cursor:pointer;
+  font-size:12px;font-weight:600;color:rgba(255,255,255,0.62);
+  padding:6px 13px;border-radius:100px;
+  transition:background .15s ease,color .15s ease;font-family:inherit;
+}
+.st-seg button:hover{color:#fff;}
+.st-seg button.is-on{background:var(--gold);color:#fff;}
+.st-seg-label{
+  font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:rgba(255,255,255,0.35);margin-right:-6px;
+}
+.st-gbtn{
+  font-size:12.5px;font-weight:600;font-family:inherit;
+  color:rgba(255,255,255,0.8);background:#232a34;
+  border:1px solid rgba(255,255,255,0.09);
+  border-radius:100px;padding:7px 14px;cursor:pointer;
+  transition:background .15s ease,color .15s ease;
+}
+.st-gbtn:hover:not(:disabled){background:#2d3542;color:#fff;}
+.st-gbtn:disabled{opacity:.35;cursor:not-allowed;}
+.st-gbtn.is-primary{background:var(--gold);border-color:var(--gold);color:#fff;}
+.st-gbtn.is-primary:hover:not(:disabled){background:var(--gold-deep);}
+
+/* ---------- the swatch rail ---------- */
+.st-rail{
+  background:#171c24;border-left:1px solid rgba(255,255,255,0.07);
+  display:flex;flex-direction:column;min-height:0;
+}
+.st-rail-head{padding:18px 20px 12px;border-bottom:1px solid rgba(255,255,255,0.07);}
+.st-rail-head h3{color:#fff;font-size:15px;margin-bottom:3px;letter-spacing:-0.01em;}
+.st-rail-head p{color:rgba(255,255,255,0.45);font-size:12px;}
+.st-rail-scroll{overflow-y:auto;padding:14px 16px 18px;flex:1;}
+
+.st-line-title{
+  font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,0.38);margin:16px 0 9px;
+}
+.st-line-title:first-child{margin-top:0;}
+
+.st-swatches{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;}
+.st-sw{
+  position:relative;border:0;padding:0;cursor:pointer;background:none;
+  border-radius:9px;overflow:hidden;text-align:left;
+  transition:transform .12s ease;
+}
+.st-sw:hover{transform:translateY(-2px);}
+.st-sw-img{
+  display:block;width:100%;aspect-ratio:1/1;object-fit:cover;
+  border-radius:9px;background:#2a2f38;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08);
+}
+.st-sw.is-on .st-sw-img{box-shadow:0 0 0 2px var(--gold),inset 0 0 0 1px rgba(255,255,255,0.1);}
+.st-sw-name{
+  display:block;font-size:10.5px;line-height:1.28;font-weight:500;
+  color:rgba(255,255,255,0.62);margin-top:5px;
+}
+.st-sw.is-on .st-sw-name{color:#fff;font-weight:600;}
+.st-sw-star{
+  position:absolute;top:5px;right:5px;width:21px;height:21px;border-radius:50%;
+  background:rgba(10,14,20,0.6);display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:opacity .12s ease;
+}
+.st-sw:hover .st-sw-star,.st-sw.is-starred .st-sw-star{opacity:1;}
+.st-sw-star svg{width:12px;height:12px;color:#fff;}
+.st-sw.is-starred .st-sw-star{background:var(--gold);}
+.st-sw-fit{
+  position:absolute;top:5px;left:5px;
+  background:var(--gold);color:#fff;font-size:8.5px;font-weight:700;
+  letter-spacing:.05em;text-transform:uppercase;
+  padding:2px 6px;border-radius:100px;
+}
+
+/* ---------- shortlist tray ---------- */
+.st-tray{
+  display:flex;align-items:center;gap:14px;
+  padding:12px 20px;background:#0f1319;
+  border-top:1px solid rgba(255,255,255,0.07);
+}
+.st-tray-label{
+  font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:rgba(255,255,255,0.4);
+}
+.st-tray-slots{display:flex;gap:9px;flex:1;}
+.st-slot{
+  width:44px;height:44px;border-radius:9px;
+  border:1px dashed rgba(255,255,255,0.16);
+  background:#161b22;position:relative;overflow:hidden;
+}
+.st-slot.is-filled{border-style:solid;border-color:transparent;}
+.st-slot img{width:100%;height:100%;object-fit:cover;display:block;}
+.st-slot-x{
+  position:absolute;top:2px;right:2px;width:15px;height:15px;border-radius:50%;
+  background:rgba(10,14,20,0.8);color:#fff;border:0;cursor:pointer;
+  font-size:10px;line-height:1;display:flex;align-items:center;justify-content:center;
+  padding:0;font-family:inherit;
+}
+.st-tray-note{font-size:11.5px;color:rgba(255,255,255,0.35);}
+
+/* ---------- compare-three overlay ---------- */
+.st-compare3{
+  position:absolute;inset:0;background:#0b0e13;z-index:5;
+  display:flex;flex-direction:column;
+}
+.st-compare3-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 18px;border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.st-compare3-head h4{color:#fff;font-size:14px;}
+.st-compare3-grid{flex:1;display:grid;gap:1px;background:rgba(255,255,255,0.08);min-height:0;}
+/* Photo and its label travel together, centred as one block. Sizing the
+   canvas with flex-grow crops it; pinning the label to the cell's bottom
+   strands it far below a short photo. Neither is what you want when three
+   16:9 shots share one panel. */
+.st-c3-cell{
+  background:#0b0e13;position:relative;min-height:0;overflow:hidden;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  padding:12px;
+}
+.st-c3-cell canvas{
+  display:block;max-width:100%;max-height:calc(100% - 34px);width:auto;height:auto;
+  border-radius:4px;
+}
+.st-c3-name{
+  color:#fff;font-size:12.5px;font-weight:600;text-align:center;
+  letter-spacing:-0.005em;
+}
+
+/* ---------- result actions ---------- */
+.st-foot{
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  padding:16px 20px;background:var(--white);border-top:1px solid var(--line);
+}
+.st-foot-note{font-size:12.5px;color:var(--ink-soft);max-width:430px;margin-right:auto;}
+.st-picked{font-weight:600;color:var(--navy-deep);}
+
+.st-under-note{
+  text-align:center;font-size:12px;color:var(--ink-soft);
+  padding:16px 20px 0;
+}
+.st-under-note a{text-decoration:underline;text-underline-offset:2px;}
