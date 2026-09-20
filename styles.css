@@ -230,6 +230,12 @@ section{padding:88px 0;}
     url('./images/ridge-nailing-detail.jpg');
   background-size:cover;background-position:center 45%;
 }
+.photo-band--hipplane{
+  background:
+    linear-gradient(180deg, rgba(28,51,80,0.08) 0%, rgba(28,51,80,0.68) 100%),
+    url('./images/finished-hip-roof-plane.jpg');
+  background-size:cover;background-position:center 30%;
+}
 .photo-band--icedam{
   background:
     linear-gradient(180deg, rgba(28,51,80,0.15) 0%, rgba(28,51,80,0.75) 100%),
