@@ -136,6 +136,12 @@ section{padding:88px 0;}
 .service-card h3{font-size:17.5px;color:var(--navy-deep);margin-bottom:8px;font-weight:600;letter-spacing:-0.01em;}
 .service-card h3 a:hover{text-decoration:underline;}
 .service-card p{font-size:14px;color:var(--ink-soft);letter-spacing:-0.005em;}
+.service-more{
+  display:inline-block;margin-top:12px;font-size:13px;font-weight:600;
+  color:var(--gold-deep);letter-spacing:-0.005em;
+  border-bottom:1px solid rgba(169,124,31,0.4);
+}
+.service-more:hover{color:var(--navy-deep);border-bottom-color:var(--navy);}
 
 /* Why choose */
 .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:left;}
