@@ -206,7 +206,7 @@
 }
 </script>
 <link rel="preload" as="image" href="./images/hero-roofline.jpg">
-<link rel="stylesheet" href="./styles.css?v=23">
+<link rel="stylesheet" href="./styles.css?v=24">
 </head>
 <body>
 
@@ -547,19 +547,94 @@
           <li><span class="check">✓</span> Minor repairs before winter hits</li>
           <li><span class="check">✓</span> Roof replacement timeline estimate</li>
           <li><span class="check">✓</span> Transparent, honest advice</li>
-          <li><span class="check">✓</span> Cost kept to a minimum</li>
+          <li><span class="check">✓</span> Running costs shared up front</li>
         </ul>
       </div>
-      <div class="winter-card">
-        <h3>Ready to prep your roof?</h3>
-        <p>Fill out a simple, no-obligation form and write "winter prep" in the description — we'll take it from there.</p>
-        <a class="btn btn-gold" href="#get-quote">Start Winter Prep</a>
+      <div class="ack">
+        <div class="ack-step">Before you book</div>
+        <h3>Heat cables raise your electricity bill</h3>
+        <p class="ack-intro">If heat cables are part of what you are asking about, please read and confirm these three things first.</p>
+
+        <div class="ack-headline">
+          <div class="ack-hl-main">
+            <span class="big">$80–$100</span>
+            <span class="u">a month while they run</span>
+          </div>
+          <p class="r">Winter increases generally land between $60 and $150 a month.</p>
+          <p class="cheaper">Still far less than putting right one water-damaged ceiling.</p>
+        </div>
+
+        <div class="ack-standard">
+          <span class="sk">Our standard install</span>
+          <strong>160 feet of cable, minimum</strong>
+          <span class="d">That is what it takes to cover the eaves, valleys and downspouts that actually matter. Shorter runs leave gaps, and ice finds the gaps.</span>
+        </div>
+
+        <ul class="ack-ticks" id="ackTicks">
+          <li><label class="ack-tick"><input type="checkbox">
+            <span>I understand heat cables are a <b>mitigation measure</b> — they keep meltwater moving, they do not stop ice forming or fix attic heat loss.</span>
+          </label></li>
+          <li><label class="ack-tick"><input type="checkbox">
+            <span>I understand the cables run on <b>my electricity</b>, billed to my own utility account, and are not included in the install price.</span>
+          </label></li>
+          <li><label class="ack-tick"><input type="checkbox">
+            <span>I understand $80–$100 a month is a <b>planning estimate, not a guarantee</b>, and my actual cost depends on how cold the winter runs, how long the cables are on, and my hydro rate plan.</span>
+          </label></li>
+        </ul>
+
+        <a class="btn btn-gold ack-go" id="ackGo" href="#get-quote" role="button" aria-disabled="true">Start Winter Prep</a>
+        <p class="ack-status" id="ackStatus" role="status">Confirm all three to continue</p>
+
+        <p class="ack-more">Not sure heat cables are the right answer for your roof? <a href="#heat-cable-costs">Read how they compare with insulation and ventilation</a> — that route has no monthly cost.</p>
       </div>
     </div>
     <div class="video-wrap" style="margin-top:32px;">
       <video data-autoplay muted controls playsinline preload="none" poster="./images/snow-removal-wide.jpg">
         <source src="./videos/snow-removal-reel.mp4" type="video/mp4">
       </video>
+    </div>
+  </div>
+</section>
+
+<section id="heat-cable-costs" class="heat-costs">
+  <div class="wrap">
+    <span class="kicker">The detail behind those three ticks</span>
+    <h2>What heat cables cost you to run</h2>
+    <p class="hc-lead">Heat cables work, and in the right situation they are the cheapest way to stop an ice-dam leak this winter. We would still rather you knew the running cost now than found it on a January bill.</p>
+
+    <div class="hc-grid">
+      <div class="hc-card">
+        <h3>They manage the problem, they don't cure it</h3>
+        <p>Self-regulating cable keeps a melt channel open at the eaves and gutters so water has somewhere to go instead of backing up behind an ice dam. It does not stop ice forming, and it does not fix the heat loss causing it — that is attic insulation and ventilation.</p>
+      </div>
+
+      <div class="hc-card hc-accent">
+        <h3>Put it against the alternative</h3>
+        <p>An ice-dam leak does not stop at the roof. It comes through the insulation, the ceiling and the drywall, and it usually takes the paint, the trim and whatever is underneath with it on the way down. Then there is the deductible, and the weeks of living around the repair.</p>
+        <p><b>A full winter of running heat cables costs less than putting one of those right.</b> That is the trade you are making, and it is the reason we install them.</p>
+      </div>
+
+      <div class="hc-card">
+        <h3>What moves your number</h3>
+        <ul>
+          <li>How cold the winter runs, and for how long</li>
+          <li>How many freeze-thaw cycles the season brings</li>
+          <li>Manual switch vs. thermostat or controller</li>
+          <li>Your hydro rate plan and the time of day they run</li>
+        </ul>
+        <p>A controller is the single biggest saving here. Cables left switched on from November to March cost far more than cables that come on when they are actually needed.</p>
+      </div>
+
+      <div class="hc-card">
+        <h3>What we install, and what the price covers</h3>
+        <p>We install <b>160 feet of cable as a minimum</b>. That is the length that gives real coverage across the eaves, valleys and downspouts, and we do not quote below it — a partial run is money spent on a problem you still have.</p>
+        <p>Your quote covers supply, installation and workmanship on the cable system. It does not cover the electricity to run it, new circuits where a licensed electrician is needed, or attic insulation and ventilation work. Those are separate.</p>
+      </div>
+    </div>
+
+    <div class="hc-fine">
+      <p>These figures are a planning estimate, not a quote on your power bill. We have no visibility of your hydro account and no control over electricity rates or the weather, so your actual cost may fall outside the range above.</p>
+      <p>Installing heat cables trades a higher winter electricity bill for a lower risk of ice-dam leaks. We will tell you honestly whether we think they suit your roof, but the choice to install them, and the ongoing cost of running them, rest with the homeowner. The same wording appears in our terms and conditions, which you accept when you approve a quote.</p>
     </div>
   </div>
 </section>
@@ -727,5 +802,6 @@
 </script>
 <script src="./videos.js"></script>
 <script src="./menu.js"></script>
+<script src="./winter-ack.js"></script>
 </body>
 </html>
