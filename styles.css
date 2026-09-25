@@ -914,3 +914,44 @@ html.nav-locked body{overflow:hidden;position:fixed;width:100%;}
 @media (max-width:760px){ .spring-steps{ grid-template-columns:1fr; } }
 @media (prefers-reduced-motion: reduce){ .spring-dot{ animation:none; } }
 @media (max-width:930px){ nav{gap:20px;} nav a,.nav-group-btn{font-size:13.5px;} .header-cta{gap:14px;} }
+
+/* ==========================================================================
+   Quote bar — phones only (quote-bar.js builds it). Pinned to the bottom of
+   the screen: one primary, Get a Free Quote, and a round call button. The
+   script shows it only while none of the page's own buttons or the quote
+   form are on screen. Above 640px the header's Get a Quote does this job.
+   Navy text on the gold, never white: white on --gold is 2.7:1, navy 4.8:1.
+   ========================================================================== */
+.quote-bar{display:none;}
+@media (max-width:640px){
+  .quote-bar{
+    display:flex;align-items:center;gap:10px;
+    position:fixed;left:0;right:0;bottom:0;z-index:60;
+    padding:10px 16px max(14px, env(safe-area-inset-bottom));
+    background:var(--cream);
+    border-top:1px solid var(--line);
+    box-shadow:0 -8px 24px rgba(28,51,80,0.08);
+    transform:translateY(110%);visibility:hidden;
+    transition:transform .25s ease, visibility 0s linear .25s;
+  }
+  .quote-bar.is-shown{transform:none;visibility:visible;transition:transform .25s ease, visibility 0s;}
+  .quote-bar-call{
+    flex:0 0 auto;width:52px;height:52px;box-sizing:border-box;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--white);color:var(--navy-deep);
+    border:1.5px solid rgba(28,51,80,0.22);
+  }
+  .quote-bar-go{
+    flex:1 1 auto;height:52px;border-radius:980px;
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    background:var(--gold);color:var(--navy-deep);
+    font-size:16px;font-weight:650;letter-spacing:-0.01em;
+  }
+  .quote-bar-go:active{background:var(--gold-deep);}
+  .quote-bar-go svg{flex:none;transition:transform .2s ease;}
+  .quote-bar-go.is-up svg{transform:rotate(-90deg);}
+  .quote-bar-go.is-down svg{transform:rotate(90deg);}
+  /* room under the footer so its last line scrolls clear of the bar */
+  html.has-quote-bar footer{padding-bottom:calc(26px + 80px + env(safe-area-inset-bottom, 0px));}
+}
+@media (prefers-reduced-motion: reduce){ .quote-bar,.quote-bar.is-shown,.quote-bar-go svg{transition:none;} }
