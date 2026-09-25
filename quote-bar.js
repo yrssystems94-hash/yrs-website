@@ -29,6 +29,16 @@
     '</a>';
   var go = bar.querySelector(".quote-bar-go");
   go.setAttribute("href", href);
+
+  // GA4: one event name per button, so each shows in the Events report by
+  // name with no custom dimension to register. Off the homepage the quote
+  // tap leaves the page, so it goes out as a beacon that survives the unload.
+  function track(name) {
+    if (typeof window.gtag === "function") window.gtag("event", name, { transport_type: "beacon" });
+  }
+  go.addEventListener("click", function () { track("quote_bar_quote"); });
+  bar.querySelector(".quote-bar-call").addEventListener("click", function () { track("quote_bar_call"); });
+
   document.body.appendChild(bar);
   document.documentElement.classList.add("has-quote-bar");
 
