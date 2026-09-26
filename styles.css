@@ -955,3 +955,83 @@ html.nav-locked body{overflow:hidden;position:fixed;width:100%;}
   html.has-quote-bar footer{padding-bottom:calc(26px + 80px + env(safe-area-inset-bottom, 0px));}
 }
 @media (prefers-reduced-motion: reduce){ .quote-bar,.quote-bar.is-shown,.quote-bar-go svg{transition:none;} }
+
+/* Our Roofs From Above — drone photos, one to a section. Each photo carries what only the view from
+   above shows, drawn on it: an SVG in the photo's own 1600x900 frame, so the marks stay on the roof at
+   every width. The flight tag (height, camera angle) is read from the photo's own drone data; the colour
+   tag is the shingle colour James gave for that job. */
+.hero--aerial{
+  min-height:80vh;
+  background:
+    linear-gradient(90deg, rgba(20,36,58,0.78) 0%, rgba(20,36,58,0.5) 36%, rgba(20,36,58,0) 64%),
+    linear-gradient(180deg, rgba(28,51,80,0.04) 0%, rgba(28,51,80,0.14) 40%, rgba(28,51,80,0.8) 80%, rgba(28,51,80,0.97) 100%),
+    url('./images/aerial-whole-roof-from-above.jpg');
+  background-size:cover;
+  background-position:center 36%;
+}
+.hero--aerial .hero-inner > :not(.hero-actions){text-shadow:0 1px 14px rgba(10,20,34,0.55);}
+.hero--aerial .eyebrow{display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,0.92);}
+.hero--aerial .eyebrow svg{width:15px;height:15px;flex:none;}
+.hero--aerial .colour-tag{top:auto;left:auto;right:max(24px, calc((100% - 1160px) / 2 + 24px));bottom:28px;z-index:3;}
+
+.aerial-section{padding:72px 0;}
+.aerial{max-width:1120px;margin:0 auto 30px;}
+.aerial-frame{
+  position:relative;overflow:hidden;border-radius:var(--radius);
+  background:var(--navy-deep);box-shadow:0 18px 48px rgba(28,51,80,0.16);
+}
+/* the photo box: marks, pills and the flight tag are placed against the photo alone, never the frame */
+.aerial-photo{position:relative;}
+.aerial-frame img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;}
+.aerial-marks{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
+.flight-tag,.colour-tag{
+  position:absolute;left:16px;top:16px;
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(15,25,40,0.74);color:var(--white);
+  border:1px solid rgba(201,150,46,0.7);border-radius:999px;
+  padding:7px 13px 7px 10px;font-size:12.5px;font-weight:600;letter-spacing:0.2px;white-space:nowrap;
+}
+.colour-tag{top:auto;bottom:16px;}
+.colour-tag b{color:#F1D08A;font-weight:650;}
+.flight-tag svg,.colour-tag svg{width:15px;height:15px;flex:none;}
+.map-pill{
+  position:absolute;transform:translate(-50%,-50%);
+  background:rgba(255,255,255,0.94);color:var(--navy-deep);
+  border:2px solid var(--gold);border-radius:999px;
+  padding:6px 13px;font-size:13px;font-weight:650;white-space:nowrap;
+  box-shadow:0 4px 14px rgba(15,25,40,0.28);
+}
+.aerial figcaption{
+  display:flex;align-items:center;gap:10px;
+  font-size:13.5px;color:var(--ink-soft);line-height:1.5;margin-top:12px;
+}
+.aerial figcaption .key{flex:none;width:22px;height:4px;border-radius:2px;background:var(--gold);box-shadow:0 0 0 1px rgba(15,25,40,0.25);}
+.aerial-section .article h2{margin-top:6px;}
+
+/* On a phone a background photo gets cropped down to the back deck, so the whole house sits above
+   the words instead. Same file as the desktop background, so no second download. */
+.hero-aerial-photo{display:none;}
+@media (max-width:640px){
+  .hero--aerial{min-height:0;display:block;padding:0;background:var(--navy-deep);}
+  .hero-aerial-photo{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;object-position:50% 42%;}
+  .hero--aerial .hero-inner{padding-top:22px;}
+  .hero--aerial .hero-inner > :not(.hero-actions){text-shadow:none;}
+  .hero--aerial .colour-tag{right:auto;bottom:auto;left:12px;top:calc(100vw * 2 / 3 - 42px);}
+  .aerial-section{padding:48px 0;}
+  .aerial{margin:0 -24px 22px;}
+  .aerial-frame{border-radius:0;box-shadow:none;}
+  .aerial figcaption{padding:0 24px;}
+  .flight-tag,.colour-tag{left:12px;top:12px;font-size:11.5px;padding:5px 10px 5px 8px;}
+  .colour-tag{top:auto;bottom:12px;}
+  /* on a phone the colour sits under the photo, where it cannot cover a mark */
+  .aerial .colour-tag{position:static;margin:9px 12px;}
+  .map-pill{font-size:11.5px;padding:4px 10px;}
+}
+
+/* A link inside a paragraph that should read as one (plain site links inherit the text colour) */
+.text-link{color:var(--navy);font-weight:600;border-bottom:1px solid rgba(201,150,46,0.75);}
+.text-link:hover{color:var(--navy-deep);border-bottom-color:var(--gold);}
+
+/* A Related grid holding four cards (Our Work) sits two by two rather than leaving one alone on a row */
+.resource-grid--pair{grid-template-columns:repeat(2,1fr);}
+@media (max-width:900px){ .resource-grid--pair{grid-template-columns:1fr;} }
